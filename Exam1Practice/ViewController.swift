@@ -14,21 +14,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     
-    //calculating the time and date
-    let date = NSDate()
-    let calendar = NSCalendar.current
-    let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-    let hour = components.hour
-    let minutes = components.minute
-    
-    var currentDateTime = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.timeStyle = .medium
-    dateLabel.text = "\(dateFormatter.string(from:currentDateTime))"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //calculating the time and date
+        let currentDateTime = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        timeLabel.text = "\(dateFormatter.string(from:currentDateTime))"
     }
 
     override func didReceiveMemoryWarning() {
