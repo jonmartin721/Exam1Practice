@@ -20,12 +20,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //calculating the time and date
+        //calculating the time
         let currentDateTime = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .medium
-        timeLabel.text = "\(dateFormatter.string(from:currentDateTime))"
+        timeLabel.text = "\(dateFormatter.string(from:currentDateTime))" //displays on label
+        
+        //calculating the date
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateLabel.text = "\(dateFormatter.string(from:currentDateTime))" //displays on label
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
